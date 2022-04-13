@@ -5,8 +5,8 @@
     "coffee-listing-app": "bin/coffee-listing-app.js"
   },
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
+    "build": "tsc --project tsconfig-cdk.json",
+    "watch": "tsc -w --project tsconfig-cdk.json",
     "test": "jest",
     "cdk": "cdk",
     "build:jsii": "jsii --strict && jsii-pacmak"
