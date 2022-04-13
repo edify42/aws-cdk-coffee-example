@@ -1,7 +1,8 @@
-import * as cdk from "@aws-cdk/core";
-import * as s3 from "@aws-cdk/aws-s3";
-import * as cloudfront from "@aws-cdk/aws-cloudfront";
-import * as cloudfrontOrigins from "@aws-cdk/aws-cloudfront-origins";
+import * as cdk from "aws-cdk-lib";
+import { Construct } from "constructs";
+import * as s3 from "aws-cdk-lib/aws-s3";
+import * as cloudfront from "aws-cdk-lib/aws-cloudfront";
+import * as cloudfrontOrigins from "aws-cdk-lib/aws-cloudfront-origins";
 
 export class WebsiteHostingStack extends cdk.Stack {
   public readonly bucket: s3.Bucket;
@@ -10,7 +11,7 @@ export class WebsiteHostingStack extends cdk.Stack {
   public readonly cfnOutBucketName: cdk.CfnOutput;
   public readonly cfnOutDistributionId: cdk.CfnOutput;
 
-  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
     let bucket = new s3.Bucket(this, "Bucket", {
