@@ -46,6 +46,7 @@ export class CoffeeListingAppStack extends cdk.Stack {
           envFromCfnOutputs: {
             SNOWPACK_PUBLIC_CLOUDFRONT_URL: appStage.cfnOutCloudFrontUrl,
             SNOWPACK_PUBLIC_API_IMAGES_URL: appStage.cfnOutApiImagesUrl,
+            SNOWPACK_PUBLIC_API_LIKES_URL: appStage.cfnOutApiLikesUrl,
             BUCKET_NAME: appStage.cfnOutBucketName,
             DISTRIBUTION_ID: appStage.cfnOutDistributionId,
           },
@@ -75,6 +76,7 @@ class AppStage extends cdk.Stage {
   public readonly cfnOutCloudFrontUrl: cdk.CfnOutput;
   public readonly cfnOutBucketName: cdk.CfnOutput;
   public readonly cfnOutDistributionId: cdk.CfnOutput;
+  public readonly cfnOutApiLikesUrl: cdk.CfnOutput;
 
   constructor(scope: Construct, id: string, props: AppStageProps) {
     super(scope, id, props);
@@ -91,5 +93,7 @@ class AppStage extends cdk.Stage {
     this.cfnOutCloudFrontUrl = websiteHosting.cfnOutCloudFrontUrl;
     this.cfnOutBucketName = websiteHosting.cfnOutBucketName;
     this.cfnOutDistributionId = websiteHosting.cfnOutDistributionId;
+    this.cfnOutApiLikesUrl = restApi.cfnOutApiLikesUrl;
   }
+  
 };
